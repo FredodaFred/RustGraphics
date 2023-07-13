@@ -273,37 +273,38 @@ fn main() {
         }
     }
     let mut colors: Vec<Color> = Vec::new();
-    colors.push(Color{r: 160, g: 32, b: 240});
-    colors.push(Color{r: 0, g: 0, b: 255});
-    colors.push(Color{r: 255, g: 192, b: 203});
+    // colors.push(Color{r: 160, g: 32, b: 240});
+    // colors.push(Color{r: 0, g: 0, b: 255});
+    // colors.push(Color{r: 255, g: 192, b: 203});
+    // colors.push(Color{r: 255, g: 0, b: 103});
 
-    glowing_animation(colors, 500, window);
+    // glowing_animation(colors, 500, window);
 
-    //linear_gradient(Color{r: 160, g: 32, b: 240}, Color{r: 255, g: 192, b: 203}, window);
-    //draw_square(Color{r: 160, g: 32, b: 240}, Point{x: 50, y: 50}, 100, window);
-    // let mut squares: Vec<Square> = Vec::new();
-    // let sq1: Square = Square { point: Point{x: 110, y: 100}, 
-    //                            length: 400, 
-    //                            dx: -3, 
-    //                            dy: 4, 
-    //                            color: Color{r: 255, g: 150, b: 10}
-    //                         };
-    // let sq2: Square = Square { point: Point{x: 600, y: 700}, 
-    //                         length: 200, 
-    //                         dx: -3, 
-    //                         dy: -5, 
-    //                         color: Color{r: 10, g: 150, b: 240}
-    //                     };
-    // let sq3: Square = Square { point: Point{x: 560, y: 500}, 
-    //                 length: 130, 
-    //                 dx: 5, 
-    //                 dy: -2, 
-    //                 color: Color{r: 153, g: 50, b: 204}//	rgb(153,50,204)
-    //             };
+    // linear_gradient(Color{r: 100, g: 100, b: 0}, Color{r: 255, g: 192, b: 203}, window);
+    // draw_square(Color{r: 160, g: 32, b: 240}, Point{x: 50, y: 50}, 100, mut window);
+    let mut squares: Vec<Square> = Vec::new();
+    let sq1: Square = Square { point: Point{x: 110, y: 100}, 
+                               length: 400, 
+                               dx: -3, 
+                               dy: 4, 
+                               color: Color{r: 255, g: 150, b: 10}
+                            };
+    let sq2: Square = Square { point: Point{x: 600, y: 700}, 
+                            length: 200, 
+                            dx: -3, 
+                            dy: -5, 
+                            color: Color{r: 10, g: 150, b: 240}
+                        };
+    let sq3: Square = Square { point: Point{x: 560, y: 500}, 
+                    length: 130, 
+                    dx: 5, 
+                    dy: -2, 
+                    color: Color{r: 153, g: 50, b: 204}//	rgb(153,50,204)
+                };
 
-    // squares.push(sq1);
-    // squares.push(sq2);
-    // squares.push(sq3);
-    // crossing_squares(squares, window)
+    squares.push(sq1);
+    squares.push(sq2);
+    squares.push(sq3);
+    crossing_squares(squares, window)
 
 }
