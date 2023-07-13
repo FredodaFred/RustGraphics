@@ -1,0 +1,63 @@
+#[derive(Clone, Copy)]
+struct Point {
+    x: isize,
+    y: isize,
+}
+
+#[derive(Clone, Copy)]
+struct Color {
+    // Define your color properties here
+}
+
+#[derive(Clone, Copy)]
+struct Square {
+    point: Point,
+    length: usize,
+    dx: isize,
+    dy: isize,
+    color: Color,
+}
+
+#[derive(Clone, Copy)]
+struct Rect {
+    point: Point,
+    xlen: usize,
+    ylen: usize,
+    dx: isize,
+    dy: isize,
+    color: Color,
+}
+
+fn overlap_rect(square1: Square, square2: Square) -> Option<Rect> {
+    let left1 = square1.point.x;
+    let top1 = square1.point.y;
+    let right1 = left1 + square1.length as isize;
+    let bottom1 = top1 + square1.length as isize;
+
+    let left2 = square2.point.x;
+    let top2 = square2.point.y;
+    let right2 = left2 + square2.length as isize;
+    let bottom2 = top2 + square2.length as isize;
+
+    let x_overlap = (left1 <= right2) && (right1 >= left2);
+    let y_overlap = (top1 <= bottom2) && (bottom1 >= top2);
+
+    if x_overlap && y_overlap {
+        let intersect_left = left1.max(left2);
+        let intersect_top = top1.max(top2);
+        let intersect_right = right1.min(right2);
+        let intersect_bottom = bottom1.min(bottom2);
+
+        let intersect_xlen = (intersect_right - intersect_left) as usize;
+        let intersect_ylen = (intersect_bottom - intersect_top) as usize;
+
+        let intersect_point = Point {
+            x: intersect_left,
+            y: intersect_top,
+        };
+
+        let intersect_rect = Rect {
+            point: intersect_point,
+            xlen: intersect_xlen,
+            ylen: intersect_ylen,
+            dx: 0
